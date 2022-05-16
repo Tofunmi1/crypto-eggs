@@ -27,7 +27,7 @@ contract CryptoEggs is ERC721{
  }
 
  function tokenURI(uint256 id) public pure override returns(string memory){
-  return _createTokenURI(id);
+  // return _createTokenURI(id);
  }
  
 function uint32ToLittleEndian(uint32 a) internal pure returns (uint32) {
@@ -94,27 +94,5 @@ function uint32ToLittleEndian(uint32 a) internal pure returns (uint32) {
         return encoded;
     }
 
- //return the Base64 encoding for our NFT svg
- function _createTokenURI(uint256 id) internal pure returns (string memory){
-  //the egg and the embryo
-  bytes memory egg = abi.encodePacked("");
-  
-  return
-    string(
-     abi.encodePacked(
-      "data:application/json;base64,",
-      Base64.encode(
-        bytes(
-         abi.encodePacked(
-          '{"name":',
-           '", "image": "',
-           'data:image/svg+xml;base64,',
-           egg,
-           '"}'
-         )
-        )  
-      )
-     )
-    );
- }
+ 
 }
